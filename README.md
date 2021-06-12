@@ -1,7 +1,7 @@
-#Sayı Tahmin oyunu#
+## Sayı Tahmin oyunu
 
 **Hasan Hüseyin GÜNEŞ**
-1181602810
+- 1181602810
 
 <hr>
 
