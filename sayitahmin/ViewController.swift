@@ -10,24 +10,41 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var totalRound: Int = 10
     var currentValue: Int = 0
-    var targetValue: Int = 0;
     
+    var targetValue: Int = 0
+    var round: Int = 0
+    var score: Int = 0
+    
+    @IBOutlet weak var lblRound: UILabel!
+    @IBOutlet weak var lblScore: UILabel!
     @IBOutlet weak var lblTarget: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        newRound()
+        newGame()
+    }
+    
+    @IBAction
+    func btnNewGame() {
+        newGame()
     }
 
     @IBAction
-    func buttonClicked(){
-        if( currentValue == targetValue ) {
-            showMessage(title: "Aferim", message: "Tahminin iyi \(currentValue)")
+    func btnResultGame(){
+        if( round > totalRound - 1) {
+            showMessage(title: "Oyun Bitti", message: "Artık Yeter Oynadığın \n Score:\(score)")
+            newGame()
         } else {
-            showMessage(title: "Kötü Haber", message: "Tahminin Tutmadı \nHedef: \(targetValue) \nSeçimin: \(currentValue)")
+            if( currentValue == targetValue ) {
+                showMessage(title: "Aferim", message: "Tahminin iyi \(currentValue)")
+            } else {
+                showMessage(title: "Kötü Haber", message: "Tahminin Tutmadı \nHedef: \(targetValue) \nSeçimin: \(currentValue)")
+            }
+            calcScore()
+            newRound()
         }
-        newRound()
     }
     
     @IBAction func sliderMoved(_ slider: UISlider){
@@ -45,6 +62,23 @@ class ViewController: UIViewController {
         targetValue = 1 + Int(arc4random_uniform(100))
         lblTarget.text = "\(targetValue)"
         currentValue = 0
+        round += 1
+        lblRound.text = "\(round) / 10"
     }
+    
+    func newGame(){
+        lblRound.text = "0"
+        lblScore.text = "0"
+        round = 0
+        score = 0
+        newRound()
+    }
+    
+    func calcScore() {
+        let diff = abs(targetValue - currentValue)
+        score += 100 - diff
+        lblScore.text = "\(score)"
+    }
+    
 }
 
