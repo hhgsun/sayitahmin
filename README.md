@@ -1,9 +1,11 @@
-* Sayı Tahmin oyunu
+**Sayı Tahmin oyunu**
 
-Hasan Hüseyin GÜNEŞ
+***Hasan Hüseyin GÜNEŞ***
 1181602810
 
-*** iOS mobil geliştirme dersi için geliştirilmiş küçük bir oyuncuk</p>
+<hr>
+
+iOS mobil geliştirme dersi için geliştirilmiş küçük bir oyuncuk</p>
 
 ![screen1](https://raw.githubusercontent.com/hhgsun/sayitahmin/master/_screenshots/screenshot-1.png)
 
